@@ -1,7 +1,16 @@
-// src/App.jsx
+import { useState } from "react";
+import TrackList from "./components/TrackList";
+import TrackForm from "./components/TrackForm";
 
 const App = () => {
-  return <h1>Hello world!</h1>;
+  const [tracks, setTracks] = useState(null);
+
+  return (
+    <>
+      <TrackForm setTracks={setTracks}/>
+      <TrackList tracks={tracks} setTracks={setTracks} />
+    </>
+  );
 };
 
 export default App;
