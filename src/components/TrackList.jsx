@@ -1,11 +1,13 @@
 import { getAllTracks } from "../services/trackService";
 import {useEffect} from 'react'
 
-const TrackList = ({tracks, setTracks}) => {
+const TrackList = ({tracks, setTracks, setEditableTrack}) => {
   
   useEffect(() => {
     getAllTracks().then(setTracks);
   }, []);
+
+ 
 
   return (
     <section>
@@ -15,6 +17,7 @@ const TrackList = ({tracks, setTracks}) => {
         {tracks.map((track) => (
           <li key={track._id}>
             {track.title} ({track.artist})
+            <button onClick={()=>setEditableTrack(track)}>edit</button>
           </li>
         ))}
       </ol>

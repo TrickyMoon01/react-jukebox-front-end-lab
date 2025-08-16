@@ -4,11 +4,20 @@ import TrackForm from "./components/TrackForm";
 
 const App = () => {
   const [tracks, setTracks] = useState(null);
+  const [editableTrack, setEditableTrack] = useState(null);
 
   return (
     <>
-      <TrackForm setTracks={setTracks}/>
-      <TrackList tracks={tracks} setTracks={setTracks} />
+      <TrackForm
+        setTracks={setTracks}
+        editableTrack={editableTrack}
+        setEditableTrack={setEditableTrack}
+      />
+      <TrackList
+        tracks={tracks}
+        setTracks={setTracks}
+        setEditableTrack={setEditableTrack}
+      />
     </>
   );
 };
